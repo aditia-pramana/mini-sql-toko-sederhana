@@ -1,0 +1,52 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>README.md</title><style></style></head><body id="preview">
+<h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="_Mini_Project_Sistem_Toko_Sederhana_MySQL_0"></a>💼 Mini Project: Sistem Toko Sederhana (MySQL)</h1>
+<p class="has-line-data" data-line-start="2" data-line-end="3">Saya membuat proyek ini untuk melatih kemampuan dasar SQL, khususnya dalam membuat dan mengelola database relasional. Proyek ini mensimulasikan sistem sederhana untuk mengelola produk, pelanggan, dan transaksi di sebuah toko kecil.</p>
+<h2 class="code-line" data-line-start=4 data-line-end=5 ><a id="_Struktur_Tabel_4"></a>🧱 Struktur Tabel</h2>
+<ol>
+<li class="has-line-data" data-line-start="6" data-line-end="12">
+<p class="has-line-data" data-line-start="6" data-line-end="7"><strong>produk</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="7" data-line-end="8">id_produk (INT, Primary Key)</li>
+<li class="has-line-data" data-line-start="8" data-line-end="9">nama (VARCHAR)</li>
+<li class="has-line-data" data-line-start="9" data-line-end="10">harga (DECIMAL)</li>
+<li class="has-line-data" data-line-start="10" data-line-end="12">stok (INT)</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="12" data-line-end="17">
+<p class="has-line-data" data-line-start="12" data-line-end="13"><strong>pelanggan</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="13" data-line-end="14">id_pelanggan (INT, Primary Key)</li>
+<li class="has-line-data" data-line-start="14" data-line-end="15">nama (VARCHAR)</li>
+<li class="has-line-data" data-line-start="15" data-line-end="17">alamat (VARCHAR)</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="17" data-line-end="25">
+<p class="has-line-data" data-line-start="17" data-line-end="18"><strong>transaksi</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="18" data-line-end="19">id_transaksi (INT, Primary Key)</li>
+<li class="has-line-data" data-line-start="19" data-line-end="20">id_produk (FK)</li>
+<li class="has-line-data" data-line-start="20" data-line-end="21">id_pelanggan (FK)</li>
+<li class="has-line-data" data-line-start="21" data-line-end="22">jumlah (INT)</li>
+<li class="has-line-data" data-line-start="22" data-line-end="23">total (DECIMAL)</li>
+<li class="has-line-data" data-line-start="23" data-line-end="25">tanggal (DATE)</li>
+</ul>
+</li>
+</ol>
+<h2 class="code-line" data-line-start=25 data-line-end=26 ><a id="_Fitur_yang_Dibuat_25"></a>🚀 Fitur yang Dibuat</h2>
+<ul>
+<li class="has-line-data" data-line-start="27" data-line-end="28">Menambahkan data produk dan pelanggan (<code>INSERT</code>)</li>
+<li class="has-line-data" data-line-start="28" data-line-end="29">Melakukan transaksi pembelian dan menghitung total (<code>INSERT</code>, <code>UPDATE</code>)</li>
+<li class="has-line-data" data-line-start="29" data-line-end="30">Menampilkan transaksi lengkap dengan <code>JOIN</code></li>
+<li class="has-line-data" data-line-start="30" data-line-end="31">Mengelompokkan data dengan <code>GROUP BY</code> dan filter dengan <code>WHERE</code></li>
+<li class="has-line-data" data-line-start="31" data-line-end="32">Menampilkan laporan penjualan berdasarkan waktu</li>
+<li class="has-line-data" data-line-start="32" data-line-end="34">Menampilkan produk yang belum pernah terjual</li>
+</ul>
+<h2 class="code-line" data-line-start=34 data-line-end=35 ><a id="_Contoh_Query_34"></a>🔍 Contoh Query</h2>
+<pre><code class="has-line-data" data-line-start="37" data-line-end="42" class="language-sql"><span class="hljs-comment">-- Menampilkan total belanja pelanggan</span>
+<span class="hljs-operator"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">p</span>.nama, <span class="hljs-keyword">SUM</span>(<span class="hljs-keyword">t</span>.total) <span class="hljs-keyword">AS</span> total_belanja
+<span class="hljs-keyword">FROM</span> transaksi <span class="hljs-keyword">t</span>
+<span class="hljs-keyword">JOIN</span> pelanggan <span class="hljs-keyword">p</span> <span class="hljs-keyword">ON</span> <span class="hljs-keyword">t</span>.id_pelanggan = <span class="hljs-keyword">p</span>.id_pelanggan
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">p</span>.nama;</span>
+</code></pre>
+
+</body></html>
